@@ -23,5 +23,14 @@ function applyActiveFunc(keys) {
 
 // タブ固定処理の関数
 function applyFixTab() {
-    console.log("タブ固定したよ!");
+    let $tabList = $('#ui-tab .ui-tab-list li');
+    if ($tabList.length) {
+        // タブリストが存在するときの処理
+        $tabList.removeClass("ui-tabs-selected");
+        // 1学期のタブをアクティブに変更
+        $('#ui-tab .ui-tab-list .tab01').addClass("ui-tabs-selected");
+
+        $('#ui-tab .ui-tabs-panel').addClass("ui-tabs-hide");
+        $('#ui-tab #tab-1').removeClass("ui-tabs-hide");
+    }
 }
