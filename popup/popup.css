@@ -1,0 +1,19 @@
+body {
+    max-width: 415px;
+    min-width: 250px;
+}
+
+.check {
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+}
+
+.check:hover {
+    background: #eee;
+}
+  
+* {
+    -webkit-user-select: none;
+    user-select: none;
+}

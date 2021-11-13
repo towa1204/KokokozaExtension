@@ -1,16 +1,21 @@
-<!-- popup.html -->
 <!DOCTYPE html>
 <html>
-    <head>
-        <style>
-            html {
-                min-height: 5em;
-                min-width: 10em;
-                background: salmon;
-            }
-        </style>
-    </head>
-    <body>
-        <p>Hello, world!</p>
-    </body>
+<head>
+    <meta charset="utf-8" />
+    <title>Kokokoza Extesion</title>
+    <link rel="stylesheet" type="text/css" href="./popup.css">
+</head>
+<body>
+    <h1>Kokokoza Extesion</h1>
+    <label class="check">
+        <input type="checkbox" id="isFixTab">
+        <span>学期のタブを1学期に固定する</span>
+    </label>
+    <label class="check">
+        <input type="checkbox" id="isKeepFullScreen">
+        <span>動画遷移時フルスクリーンを維持する</span>
+    </label>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+    <script src="./popup.js"></script>
+</body>
 </html>

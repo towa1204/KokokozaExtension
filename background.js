@@ -1,6 +1,11 @@
-// Wrap in an onInstalled callback in order to avoid unnecessary work
-// every time the background script is run
+// 拡張機能がインストールされたとき
 chrome.runtime.onInstalled.addListener(() => {
+    enablePageAction();
+    initStorage(["isFixTab", "isKeepFullScreen"])
+});
+
+// NHK高校講座のページのみactionを可能にする
+function enablePageAction() {
     // Page actions are disabled by default and enabled on select tabs
     chrome.action.disable();
   
@@ -20,4 +25,12 @@ chrome.runtime.onInstalled.addListener(() => {
       let rules = [kokokozaRule];
       chrome.declarativeContent.onPageChanged.addRules(rules);
     });
-});
+}
+
+// popupのチェックボックスの変数と値の初期化
+function initStorage(keys) {
+    keys.forEach(key => {
+        // チェックボックスがチェックされていない状態で初期化
+        chrome.storage.local.set({[key] : false}, function(){});
+    })
+}
