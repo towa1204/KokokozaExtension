@@ -1,0 +1,2 @@
+# KokokozaExtension
+NHK高校講座のサイトをより見やすくするためのChrome拡張機能
