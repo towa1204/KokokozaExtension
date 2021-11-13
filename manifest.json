@@ -10,5 +10,11 @@
     "background" : {
         "service_worker" : "background.js"
     },
-    "permissions" : ["declarativeContent", "storage"]
+    "permissions" : ["declarativeContent", "storage"],
+    "content_scripts" : [
+        {
+            "matches" : ["https://www.nhk.or.jp/kokokoza/*"],
+            "js" : ["content-scripts.js"]
+        }
+    ]
 }

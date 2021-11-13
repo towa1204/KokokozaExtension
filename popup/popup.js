@@ -9,7 +9,13 @@ function addClickEventListeners(keys) {
         $('#' + key).click(function() {
             // チェックボックスの状態をストレージに保存
             chrome.storage.local.set({[key] : $('#' + key).prop('checked')}, function(){});
-        })
+
+            // 開いているウィンドウのアクティブなタブのページにメッセージを送信 値の変更を通知
+            chrome.tabs.query({active : true, currentWindow : true}, function(tabs) {
+                // {key : チェックボックスのid}でどのチェックボックスが変更されたかを渡す
+                chrome.tabs.sendMessage(tabs[0].id, { key: key }, function(){});
+            });
+        });
     });
 }
 
