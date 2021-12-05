@@ -1,4 +1,3 @@
-console.log("helloworld");
 applyActiveFunc(["isFixTab", "isKeepFullScreen"]);
 
 // popupで設定が変更されたときの処理
@@ -16,6 +15,7 @@ function applyActiveFunc(keys) {
                 applyFixTab();
             } else if (key === "isKeepFullScreen" && data[key]) {
                 // フルスクリーン固定の機能が設定有効なときの処理
+                applySwitchScreen();
             }
         });
     });
@@ -33,4 +33,17 @@ function applyFixTab() {
         $('#ui-tab .ui-tabs-panel').addClass("ui-tabs-hide");
         $('#ui-tab #tab-1').removeClass("ui-tabs-hide");
     }
+}
+
+// shift + fでスクリーンのモードを切り替える関数
+function applySwitchScreen() {
+    // フルスクリーンボタンのDOM
+    let fsButtonAddr = ".videojs_player button.vjs-fullscreen-control.vjs-control.vjs-button";
+    // キーを押下したとき
+    $(window).keydown(function(event) {
+        if (event.key === "F") {
+            $(fsButtonAddr).trigger("click");
+            return false;
+        }
+    });
 }
