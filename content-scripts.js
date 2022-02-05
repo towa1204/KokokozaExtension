@@ -1,3 +1,9 @@
+// Copyright (c) 2020 yusukesaitoh
+// Released under the MIT license
+// https://github.com/yusukesaitoh/calm-twitter
+
+// calm-twitterの構成を参考にして作られました
+
 applyActiveFunc(["isFixTab", "isKeepFullScreen"]);
 
 // popupで設定が変更されたときの処理
